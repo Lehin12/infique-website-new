@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>INFIQUE AI | Enterprise AI Surveillance & Engineering</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+@keyframes panBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-hero-section {
+  position: relative;
+  padding: 120px 5% 80px;
+  text-align: center;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated-hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('images/back.jpg');
+  background-size: 130%;
+  background-repeat: no-repeat;
+  animation: panBackground 30s linear infinite;
+}
+
+.animated-hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(15,23,42,0.7), #0f172a);
+}
+
+/* HERO */
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.hero-subtext {
+  max-width: 900px;
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  color: #cbd5e1;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid #3b82f6;
+}
+
+/* GRID */
+.product-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .hero-title { font-size: 2.2rem; }
+
+  .hero-subtext {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn { width: 90%; }
+
+  .product-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 50px 5% !important;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="index.html" class="logo">INFIQUE<span>.AI</span></a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            ☰
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="animated-hero-section">
+<h1 class="hero-title">
+Architecting the Future <br> of Industrial Intelligence
+</h1>
+
+<p class="hero-subtext">
+Precision-engineered Computer Vision, Full-Stack Ecosystems, and Cloud Infrastructure.
+</p>
+
+<div class="hero-buttons">
+<a href="contact.html" class="btn">Request a Demo</a>
+<a href="products.html" class="btn secondary-btn">View Platform Details</a>
+</div>
+</section>
+
+<!-- CORE TECHNOLOGY -->
+<section style="padding:80px 5%; background:#1e293b;">
+<div class="featured-badge" style="margin:auto;">CORE TECHNOLOGY</div>
+
+<div class="product-feature-grid">
+
+<div>
+<h2 style="font-size:2.5rem;">Proactive AI Surveillance</h2>
+<p style="margin:20px 0; color:#94a3b8;">
+Move beyond recording to real-time understanding with AI-powered monitoring.
+</p>
+
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+<div style="padding:20px; background:#0f172a;">
+<h4>99.9% Recall</h4>
+<p>High precision detection</p>
+</div>
+
+<div style="padding:20px; background:#0f172a;">
+<h4>Sub-500ms</h4>
+<p>Real-time processing</p>
+</div>
+</div>
+
+</div>
+
+<div>
+<img src="images/ai analysis.jpeg" style="width:100%; border-radius:10px;">
+</div>
+
+</div>
+</section>
+
+<!-- ENGINEERING -->
+<section style="padding:80px 5%;">
+<h2 style="text-align:center;">Engineering Specializations</h2>
+
+<div class="home-engineering-grid">
+
+<div class="home-image-card">
+<img src="images/ai3.jpeg">
+<div class="home-card-overlay">
+<h3>Computer Vision</h3>
+<p>AI-based monitoring systems</p>
+</div>
+</div>
+
+<div class="home-image-card">
+<img src="images/fs.png">
+<div class="home-card-overlay">
+<h3>Web Systems</h3>
+<p>MERN scalable apps</p>
+</div>
+</div>
+
+<div class="home-image-card">
+<img src="images/cloud.png">
+<div class="home-card-overlay">
+<h3>Cloud DevOps</h3>
+<p>AWS automation pipelines</p>
+</div>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+  <div class="footer-container">
+
+    <!-- LEFT SIDE -->
+    <div class="footer-left">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="footer-right">
+      <a href="index.html" class="logo">INFIQUE<span>.AI</span></a>
+
+      <p>
+        Enterprise-grade AI Surveillance, MERN Stack Systems, 
+        and scalable Cloud Infrastructure for modern businesses.
+      </p>
+
+      <p>📍 Jaipur, Rajasthan, India</p>
+      <p>📧 viveksaxenada@gmail.com</p>
+      <p>📞 +91 8708871687</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 INFIQUE AI & IT Solutions. All rights reserved.</p>
+  </div>
+
+</footer>
+
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+// Toggle menu
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+// Close menu when clicking outside
+document.addEventListener("click", (e) => {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove("active");
+    }
+});
+</script>
+</body>
+</html>

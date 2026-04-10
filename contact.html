@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | INFIQUE AI Engineering</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.contact-container {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 60px;
+    background: #1e293b;
+    border-radius: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+.contact-layout {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+.contact-info-panel { flex: 1; }
+.contact-form-panel { flex: 1.5; }
+
+@media (max-width: 900px) {
+    .contact-layout { flex-direction: column; gap: 50px; }
+    .contact-container { margin: 40px 5%; padding: 40px 30px; }
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.info-card {
+    background: #0f172a;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--accent);
+}
+
+label {
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.required-star { color: #ef4444; }
+
+#formStatus {
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.spinner {
+    margin-left: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo">INFIQUE<span>.AI</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </nav>
+</header>
+
+<main style="padding: 40px 5%;">
+
+<div class="contact-header">
+<h1 style="font-size: 3rem; color: white;">Technical Inquiry & Support</h1>
+<p style="color: var(--text-muted);">
+Connect with our engineering team for deployment queries.
+</p>
+</div>
+
+<div class="contact-container">
+<div class="contact-layout">
+
+<div class="contact-info-panel">
+<div class="info-card">
+<h3 style="color: white;">Direct Channels</h3>
+<p>📧 viveksaxenada@gmail.com</p>
+<p>📞 +91 8708871687</p>
+</div>
+
+<div class="info-card">
+<h3 style="color: white;">Regional HQ</h3>
+<p>Jaipur, Rajasthan, India</p>
+</div>
+</div>
+
+<div class="contact-form-panel">
+
+<form id="demoForm">
+
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+
+<div>
+<label>Your Name *</label>
+<input type="text" name="name" required>
+</div>
+
+<div>
+<label>Email *</label>
+<input type="email" name="email" required>
+</div>
+
+<div>
+<label>Mobile</label>
+<input type="tel" name="mobile">
+</div>
+
+<div>
+<label>Subject *</label>
+<input type="text" name="subject" required>
+</div>
+
+</div>
+
+<label>Message *</label>
+<textarea name="message" rows="5" required></textarea>
+
+<button type="submit" class="btn" id="submitBtn">
+    <span id="btnText">Send Inquiry</span>
+    <span id="spinner" class="spinner" style="display:none;">⏳</span>
+</button>
+
+<p id="formStatus"></p>
+
+</form>
+
+</div>
+</div>
+</div>
+
+</main>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("zEabDc_2n0R24UrBa"); // PUBLIC KEY
+})();
+
+document.getElementById("demoForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById("submitBtn");
+    const btnText = document.getElementById("btnText");
+    const spinner = document.getElementById("spinner");
+    const status = document.getElementById("formStatus");
+
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const subject = this.subject.value.trim();
+    const message = this.message.value.trim();
+
+    if (!name || !email || !subject || !message) {
+        status.innerText = "❌ Please fill all required fields";
+        status.style.color = "red";
+        return;
+    }
+
+    btn.disabled = true;
+    btnText.innerText = "Sending...";
+    spinner.style.display = "inline";
+
+    emailjs.sendForm(
+        "service_68jvj1e",   // SERVICE ID
+        "template_vji2gd9",  // TEMPLATE ID
+        this
+    )
+    .then(() => {
+        status.innerText = "✅ Inquiry sent successfully!";
+        status.style.color = "lightgreen";
+        this.reset();
+    })
+    .catch(() => {
+        status.innerText = "❌ Failed to send";
+        status.style.color = "red";
+    })
+    .finally(() => {
+        btn.disabled = false;
+        btnText.innerText = "Send Inquiry";
+        spinner.style.display = "none";
+    });
+});
+</script>
+
+<script>
+function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
